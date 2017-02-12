@@ -44,7 +44,7 @@ group :development, :staging do
 end
 
 group :test do
-  gem "capybara-webkit"
+  # gem "capybara-webkit"
   gem "database_cleaner"
   gem "formulaic"
   gem "launchy"
@@ -60,6 +60,13 @@ group :staging, :production do
 end
 
 gem 'high_voltage'
-gem 'bourbon', '~> 5.0.0.beta.7'
-gem 'neat', '~> 2.0.0.beta.1'
-gem 'refills', group: [:development, :test]
+
+gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'omniauth'
+gem 'omniauth-salesforce'
+gem 'restforce'
+gem 'devise'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+end
