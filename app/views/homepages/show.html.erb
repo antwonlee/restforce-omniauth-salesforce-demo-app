@@ -1,14 +1,41 @@
 <%= render "navs/navbar" %>
-
-<div class="jumbotron jumbotron-fluid">
+<div id="homepage-container">
   <div class="container">
     <% if user_signed_in? %>
       <h1 class="display-3">User signed in</h1>
+      <br />
       <p class="lead">Salesforce Information:</p>
+      <table class="table table-inverse table-responsive">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">User Email</th>
+            <td><%= current_user.email %></td>
+          </tr>
+          <tr>
+            <th scope="row">Instance URL</th>
+            <td><%= current_user.instance_url %></td>
+          </tr>
+          <tr>
+            <th scope="row">OAuth Token</th>
+            <td><%= current_user.oauth_token %></td>
+          </tr>
+          <tr>
+            <th scope="row">Refresh Token</th>
+            <td><%= current_user.refresh_token %></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to "Display Accounts", accounts_path, class: "btn btn-lg btn-primary" %>
+      <%= @accounts %>
     <% else %>
-      <h1 class="display-3">Not Logged In</h1>
-      <p class="lead">You are not authenticated with Salesforce OAuth yet.</p>
+      <h1 class="display-3 text-center">Not Logged In</h1>
+      <p class="lead text-center">You are not authenticated with Salesforce OAuth yet.</p>
     <% end %>
   </div>
 </div>
-

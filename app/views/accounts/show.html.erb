@@ -1,0 +1,28 @@
+<%= render "navs/navbar" %>
+
+<div class="clearfix"></div>
+<div id="accounts-container">
+  <div class="container" style="padding-top: 125px;">
+    <h1>Accounts</h1>
+    <table class="table table-inverse">
+      <thead>
+        <tr>
+          <th>Record ID</th>
+          <th>Account Name</th>
+          <th>Website</th>
+          <th colspan="5">Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @accounts.each do |account| %>
+          <tr>
+            <td><%= account.Id %></td>
+            <td><%= account.Name %></td>
+            <td><%= account.Website %></td>
+            <td><%= account.Phone %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

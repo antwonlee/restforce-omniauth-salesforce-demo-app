@@ -2,3 +2,21 @@
 
 @import "normalize-rails";
 @import "bootstrap";
+
+#homepage-container,
+#accounts-container {
+  background: asset-url("bg-homepage.jpg") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .container {
+    color: #042659;
+  }
+}
+
+.alert {
+  margin-bottom: 4px;
+  text-align: center;
+}

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-toggleable-md navbar-light" style="background-color: #e3f2fd;">
+<nav class="navbar navbar-toggleable-md navbar-light fixed-top" style="background-color: #e3f2fd;">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -6,11 +6,19 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav  ml-auto p-2">
-      <li class="nav-item">
-      <%= link_to user_salesforce_omniauth_authorize_path, class: "btn btn-info" do %>
-        <i class="fa fa-cloud"></i> Sign in with Salesforce
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path, :method => :delete, class: "btn btn-danger" do %>
+            <i class="fa fa-times"></i> Sign Out
+          <% end %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to user_salesforce_omniauth_authorize_path, class: "btn btn-info" do %>
+            <i class="fa fa-cloud"></i> Sign in with Salesforce
+          <% end %>
+        </li>
       <% end %>
-      </li>
     </ul>
   </div>
 </nav>
