@@ -9,7 +9,7 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.instance_url = auth.credentials.instance_url
-      user.oauth_token = auth.credentials.token
+      user.oauth_token = URI.uneescape(auth.credentials.token)
       user.refresh_token = URI.unescape(auth.credentials.refresh_token)
       user.save!
     end

@@ -9,8 +9,8 @@ class AccountsController < ApplicationController
   private
 
   def salesforce 
-    @restforce ||= Restforce.new :oauth_token => current_user.oauth_token,
-      :refresh_token           => current_user.refresh_token,
+    @restforce ||= Restforce.new :oauth_token => URI.escape(current_user.oauth_token),
+      :refresh_token           => URI.escape(current_user.refresh_token),
       :instance_url            => current_user.instance_url,
       :client_id               => ENV["SALESFORCE_CLIENT_ID"],
       :client_secret           => ENV["SALESFORCE_CLIENT_SECRET"],
