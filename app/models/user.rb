@@ -14,15 +14,4 @@ class User < ApplicationRecord
       user.save!
     end
   end
-
-  def restforce
-    if oauth_token && refresh_token && instance_url
-      @restforce ||= Restforce.new :oauth_token => oauth_token,
-        :refresh_token           => refresh_token,
-        :instance_url            => instance_url,
-        :client_id               => ENV["SALESFORCE_CLIENT_ID"],
-        :client_secret           => ENV["SALESFORCE_CLIENT_SECRET"],
-        :authentication_callback => Proc.new {|x| Rails.logger.debug x.to_s}
-    end
-  end
 end
